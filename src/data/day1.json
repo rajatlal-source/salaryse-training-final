@@ -1,0 +1,109 @@
+{
+  "modules": [
+    {
+      "id": "m1",
+      "title": "Understanding SalarySe & Value Proposition",
+      "content": [
+        "SalarySe is India's leading salary-powered fintech platform partnered with RBL Bank.",
+        "Our flagship product: RBL SalarySe UP Virtual Credit Card \u2013 instant approval, UPI-ready."
+      ],
+      "quiz": [
+        {
+          "q": "What is the SalarySe flagship product?",
+          "options": [
+            "RBL SalarySe UP Virtual Credit Card",
+            "Physical Platinum Card",
+            "Only Salary Advance"
+          ],
+          "correct": 0,
+          "rationale": "The flagship product is the SalarySe UP Virtual Credit Card."
+        },
+        {
+          "q": "Which integration enables seamless payments?",
+          "options": [
+            "NFC",
+            "UPI",
+            "NEFT only"
+          ],
+          "correct": 1,
+          "rationale": "UPI allows seamless credit card-linked transactions."
+        }
+      ]
+    },
+    {
+      "id": "m2",
+      "title": "STAR Sales Framework",
+      "content": [
+        "S - START with Impact",
+        "T - TARGET Pain Points",
+        "A - ACTIVATE Urgency",
+        "R - RESOLVE and Close"
+      ],
+      "quiz": [
+        {
+          "q": "What does the 'S' in STAR stand for?",
+          "options": [
+            "Speak Fast",
+            "Start with Impact",
+            "Solve Immediately"
+          ],
+          "correct": 1,
+          "rationale": "The STAR framework begins with 'Start with Impact'."
+        },
+        {
+          "q": "Which step creates urgency in STAR?",
+          "options": [
+            "S",
+            "T",
+            "A",
+            "R"
+          ],
+          "correct": 2,
+          "rationale": "'A' stands for Activate Urgency."
+        }
+      ]
+    },
+    {
+      "id": "m3",
+      "title": "The Perfect Opening (First 30 Seconds)",
+      "content": [
+        "Your first 30 seconds determine call success.",
+        "Use confident tone, value-driven statement, and establish urgency."
+      ],
+      "quiz": [
+        {
+          "q": "Which of these is the best opening?",
+          "options": [
+            "\"Hi, do you want a credit card?\"",
+            "\"Good afternoon! This is Raj from SalarySe. We have an exclusive virtual card offer just for salaried employees. May I take 2 minutes to explain?\"",
+            "\"Hey, are you free? I want to sell a card.\""
+          ],
+          "correct": 1,
+          "rationale": "A professional, value-driven opener builds credibility quickly."
+        }
+      ]
+    }
+  ],
+  "assessment": [
+    {
+      "q": "What does SalarySe specialize in?",
+      "options": [
+        "Large corporate loans",
+        "Salary-powered financial products",
+        "Agriculture finance"
+      ],
+      "correct": 1,
+      "rationale": "SalarySe focuses on salary-powered financial products."
+    },
+    {
+      "q": "Which bank partners with SalarySe?",
+      "options": [
+        "HDFC",
+        "ICICI",
+        "RBL Bank"
+      ],
+      "correct": 2,
+      "rationale": "SalarySe partners with RBL Bank for its flagship credit card."
+    }
+  ]
+}
