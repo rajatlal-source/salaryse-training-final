@@ -1,37 +1,19 @@
-import { useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+
+import React from 'react'
+import './index.css'
 import Splash from './pages/Splash'
-import Home from './pages/Home'
+import Login from './pages/Login'
+import Dashboard from './pages/Dashboard'
 import Lesson from './pages/Lesson'
 import Assessment from './pages/Assessment'
-import Library from './pages/Library'
-import RolePlay from './pages/RolePlay'
-import { useProgress } from './store/useProgress'
+import Analytics from './pages/Analytics'
+import { useUser } from './store/user'
 
-export type Route = 'splash' | 'home' | 'lesson' | 'assessment' | 'library' | 'roleplay'
+type View = { name: 'splash' } | { name: 'login' } | { name: 'home' } | { name: 'lesson', id:string } | { name: 'assessment' } | { name: 'analytics' }
 
 export default function App(){
-  const [route, setRoute] = useState<Route>('splash')
-  const [lessonId, setLessonId] = useState<string>('star')
-  const progress = useProgress()
-
-  const navigate = (r: Route, opts?: any) => {
-    if (r === 'lesson' && opts?.lessonId) setLessonId(opts.lessonId)
-    setRoute(r)
-  }
-
-  return (
-    <div className="min-h-screen bg-[#0B0B0B] text-white">
-      <AnimatePresence mode="wait">
-        {route === 'splash' && <motion.div key="splash" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><Splash onStart={()=>navigate('home')} /></motion.div>}
-        {route === 'home' && <motion.div key="home" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
-          <Home onOpenLesson={(id)=>navigate('lesson',{lessonId:id})} onOpenLibrary={()=>navigate('library')} onRolePlay={()=>navigate('roleplay')} onAssessment={()=>navigate('assessment')} progress={progress} />
-        </motion.div>}
-        {route === 'lesson' && <motion.div key="lesson" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><Lesson id={lessonId} onBack={()=>navigate('home')} /></motion.div>}
-        {route === 'assessment' && <motion.div key="assessment" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><Assessment onBack={()=>navigate('home')} /></motion.div>}
-        {route === 'library' && <motion.div key="library" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><Library onBack={()=>navigate('home')} /></motion.div>}
-        {route === 'roleplay' && <motion.div key="roleplay" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><RolePlay onBack={()=>navigate('home')} /></motion.div>}
-      </AnimatePresence>
-    </div>
-  )
+  const { user } = useUser()
+  const [v,setV]=React.useState<View>({name:'splash'})
+  React.useEffect(()=>{ if(user && (v.name==='login' || v.name==='splash')) setV({name:'home'}) },[user])
+  return (<div>{v.name==='splash' && <Splash onStart={()=> setV({name: user? 'home':'login'})} />}{v.name==='login' && <Login onEnter={()=> setV({name:'home'})} />}{v.name==='home' && <Dashboard openLesson={(id)=>setV({name:'lesson', id})} openAssessment={()=>setV({name:'assessment'})} openAnalytics={()=>setV({name:'analytics'})} />}{v.name==='lesson' && <Lesson id={v.id} back={()=> setV({name:'home'})} />}{v.name==='assessment' && <Assessment back={()=> setV({name:'home'})} />}{v.name==='analytics' && <Analytics back={()=> setV({name:'home'})} />}<footer className="text-xs opacity-50 text-center py-6">SalarySe Training • Local analytics • Google Sheets-ready</footer></div>)
 }

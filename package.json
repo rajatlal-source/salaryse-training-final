@@ -1,16 +1,18 @@
+
 {
-  "name": "salaryse-training",
+  "name": "salaryse-training-pro",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "framer-motion": "^11.3.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "framer-motion": "^11.3.0"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.2.1",

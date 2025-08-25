@@ -1,14 +1,5 @@
-import Button from '../components/Button'
-import { motion } from 'framer-motion'
 
+import Button from '../components/Button'
 export default function Splash({onStart}:{onStart:()=>void}){
-  return (
-    <div className="min-h-screen grid place-items-center">
-      <motion.div initial={{opacity:0,y:12}} animate={{opacity:1,y:0}} transition={{duration:.3}} className="text-center space-y-6">
-        <div className="text-4xl font-bold">SalarySe CC Telesales</div>
-        <div className="opacity-80">15 minutes a day. Real calls, real closings.</div>
-        <Button onClick={onStart}>Start Training</Button>
-      </motion.div>
-    </div>
-  )
+  return (<div className="min-h-screen grid place-items-center"><div className="text-center space-y-6"><div className="text-4xl font-bold">SalarySe CC Telesales</div><div className="opacity-80">2–3 days. 1 hour per day. Gamified.</div><Button onClick={onStart}>Start</Button></div></div>)
 }
